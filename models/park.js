@@ -4,4 +4,22 @@ const Park = function(name, ticketPrice, dinosaurs){
   this.dinosaurs = dinosaurs;
 }
 
+Park.prototype.findDinosaur = function(speciesToSearch){
+  let foundDinosaurs = [];
+  for (dinosaur of this.dinosaurs){
+    if (dinosaur.species === speciesToSearch){
+      foundDinosaurs.push(dinosaur);
+    }
+  }
+  return foundDinosaurs;
+}
+
+Park.prototype.removeDinosaur = function(speciesToRemove){
+  for (dinosaur of this.dinosaurs){
+    if (dinosaur.species === speciesToRemove){
+      this.dinosaurs.pop(speciesToRemove);
+    }
+  }
+}
+
 module.exports = Park;
